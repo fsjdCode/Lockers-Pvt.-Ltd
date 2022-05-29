@@ -1,0 +1,62 @@
+package com.exception.handle;
+
+import java.util.Scanner;
+
+public class mainFlow2 {
+
+
+
+	public static void main(String[] args) {
+
+		//Code to display the welcome screen. It should display: Application name and the developer details
+		FunctionRepo.displayWelcomeScreen();
+
+		//System.out.println(" Do you want to continue? yes/no ");
+		Scanner sc = new Scanner(System.in);
+		String decision ;
+		
+		do {
+			
+			System.out.println("What do you want to do? Search? /Create? /Delete? ");
+			String choice = sc.next();
+
+			switch(choice) 
+			{ 
+			case ("Search"): 
+
+				//System.out.println("This is a search operation");
+				
+			System.out.println("Enter file name to search :-- ");
+			sc= new Scanner(System.in);
+			String srhFileName = sc.nextLine();
+			FunctionRepo.searchYourFile(srhFileName);
+			break; 
+
+			case ("Create"): 
+				//System.out.println("This is a create operation");
+			
+			System.out.println("Enter a new file name  :-- ");
+			sc= new Scanner(System.in);
+			String newFileName = sc.nextLine();
+			FunctionRepo.creatNewFile(newFileName);
+			break; 
+			case ("Delete"): 
+				//System.out.println("This is a delete operation");
+				
+				System.out.println("Enter file name to be delete :-- ");
+				sc= new Scanner(System.in);
+				String deFileName = sc.nextLine();
+				FunctionRepo.deleteFile(deFileName);
+			break; 
+			default: 
+				System.out.println("Enter valid option\n"); 
+			}
+			System.out.println(" Do you want to continue? yes/no ");
+			decision = sc.next();
+		} while (decision.equalsIgnoreCase("yes"));
+		 
+	}
+	
+
+
+}
