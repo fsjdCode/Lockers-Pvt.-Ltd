@@ -1,0 +1,46 @@
+package com.file.io.programs;
+
+import java.io.BufferedWriter;
+import java.io.IOException;
+import java.nio.charset.StandardCharsets;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.util.Scanner;
+
+public class CreateAFiile {
+
+	public static void main(String[] args) {
+		// C:\Users\sasmita\workspace\DurgaJavaPrograms
+		///home/mkyong/newFile.txt
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Would you like to create a new file? Enter file name :-- ");
+
+		String inputString = scanner.nextLine();
+		System.out.println("inputString - "+inputString); 
+		String cwd = System.getProperty("user.dir");
+		System.out.println("cwd - "+cwd);
+		String filePath = cwd.replace("\\", "/");
+		System.out.println("filePath - "+filePath); 
+		
+		
+		String fileName = filePath +"/" +inputString;
+
+		Path path = Paths.get(fileName);
+		System.out.println("path - "+path); 
+		// default, create, truncate and write to it.
+		
+		try (BufferedWriter writer =
+				Files.newBufferedWriter(path, StandardCharsets.UTF_8)) {
+
+			writer.write("This is your new  file.");
+			System.out.println("Your file, "+inputString+ " has been created successfully!");
+			
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+		
+	}
+
+}

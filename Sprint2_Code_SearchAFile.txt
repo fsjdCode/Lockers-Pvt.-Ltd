@@ -1,0 +1,27 @@
+package com.file.io.programs;
+
+import java.util.Scanner;
+
+public class SearchAFile {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Would you like to Search? Enter file name :-- ");
+
+		String inputString = scanner.nextLine();
+		System.out.println("Your string is:--  " + inputString);
+
+		String cwd = System.getProperty("user.dir");
+		System.out.println("cwd - " +cwd);
+		String path = cwd +"\\" +inputString;
+		System.out.println("path - " +path);
+		String filePath = path.replace("\\", "\\\\");
+		System.out.println("filePath - "+filePath);
+		
+		String fp = cwd.replace("\\", "/");
+		System.out.println("fp"+fp);
+
+	}
+
+}

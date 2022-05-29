@@ -1,0 +1,36 @@
+package com.file.io.programs;
+
+import java.io.File;
+import java.util.Scanner;
+
+
+public class DeleteFile {
+
+	public static void main(String[] args) {
+
+		Scanner scanner = new Scanner(System.in);
+		System.out.println("Would you like to delete? Enter file name :-- ");
+
+		String inputString = scanner.nextLine();
+		System.out.println("Your string is:--  " + inputString);
+
+		String cwd = System.getProperty("user.dir");
+		System.out.println(cwd);
+		String path = cwd +"\\" +inputString;
+		System.out.println(path);
+		String filePath = path.replace("\\", "\\\\");
+		System.out.println(filePath);
+		
+		//Code to delete the file
+		File file = new File(filePath);
+
+		if (file.delete()) {
+			System.out.println("File deleted successfully");
+		}
+		else {
+			System.out.println("Failed to delete the file");
+		}
+
+	}
+
+}
