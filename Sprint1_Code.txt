@@ -1,0 +1,29 @@
+static void displayWelcomeScreen(){
+
+		System.out.println(" ~~LockedMe.com~~");
+		System.out.println(" Developer Details:- " + "\n -Amarendra Sahoo" +"\n -Full Stack Java Developer" 
+				+"\n -Company Name - SimpliLearn");
+		System.out.println("Your current working directory is: = " + returnCurrentWorkingDirectory());
+		ArrayList<String> fileList = sortFileNames();
+		for(String l : fileList){
+
+			System.out.println(l);
+		}
+		System.out.println("The total number of files and directories are : " + fileList.size());   
+	}
+
+static String returnCurrentWorkingDirectory(){
+		String cwd = System.getProperty("user.dir");
+		return cwd;
+	}
+
+static ArrayList<String> sortFileNames(){
+		ArrayList<String> list = new ArrayList<String>();
+		String fPath = rightFormatofFilePath();
+		File f = new File(fPath);
+		String[] S = f.list();
+
+		for(String s1 : S){
+
+			list.add(s1);
+		}
